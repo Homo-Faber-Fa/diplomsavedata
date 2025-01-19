@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  client-backend:
+
+    image: diplom:2024
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    ports:
+      - "8081"
+
+  client:
+          container_name: frontend-client
+          restart: unless-stopped
+          build:
+            context: netology-diplom-frontend
+            dockerfile: Dockerfile-front
+          image: front:latest
+
+          ports:
+                - "8081"
+
+
+
+
+
+
+
+
+
+
+
